@@ -41,6 +41,11 @@ public class PostController {
         return  new ResponseEntity(service.getMoreSearch(),HttpStatus.OK);
     }
 
+    @RequestMapping(value = "producto/edit/{id}",method = RequestMethod.PUT)
+    public ResponseEntity editProduct(@PathVariable(value = "id")String id,@RequestBody ProductosDto post){
+        return new ResponseEntity(service.edit(id,post),HttpStatus.OK);
+    }
+
 
 }
 

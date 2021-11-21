@@ -128,7 +128,19 @@ public class PostManagementServiceImpl implements PostManagementService {
         }
     }
 
-
+    @Override
+    public Boolean edit(String id, ProductosDto post) {
+        Map<String, Object> docData = getDocData(post);
+        ApiFuture<WriteResult> writeResultApiFuture= getCollection().document(id).set(docData);
+        try {
+            if (null != writeResultApiFuture.get()) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
+        } catch (Exception e) {
+            return Boolean.FALSE;
+        }
+    }
 
 
     private CollectionReference getCollection() {

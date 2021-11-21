@@ -13,6 +13,7 @@ public interface PostManagementService {
     List<String>  addImagen(String id,MultipartFile frontal,MultipartFile trasera) throws IOException;
     ProductosDto getById(String id) ;
     List<ProductosDto> getMoreSearch();
+    Boolean edit(String id, ProductosDto post);
 
 
 }
